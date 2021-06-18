@@ -7,9 +7,16 @@ class PicturesController < ApplicationController
     @picture = Picture.new
   end
   def create
-    Picture.create(picture_params)
-    redirect_to new_picture_path
-
+    @picture = Picture.new(picture_params)
+    if params[:back]
+      render :new
+    else
+      if @picture.save
+        redirect_to pictures_path, notice: "作成しました！"
+      else
+        render :new
+      end
+    end
   end
   def show
     # @picture = Picture.find(params[:id])
@@ -28,6 +35,10 @@ class PicturesController < ApplicationController
   def destroy
     @picture.destroy
     redirect_to pictures_path, notice:"削除しました！"
+  end
+  def confirm
+    @picture = Picture.new(picture_params)
+    render :new if @picture.invalid?
   end
   private
   def picture_params
