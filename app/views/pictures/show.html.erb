@@ -1,3 +1,9 @@
 <h1>今日のできごと</h1>
 <p>タイトル: <%= @picture.title %></p>
 <p>内容: <%= @picture.content %></p>
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @picture.image.url %>
+</p>
+<%= link_to 'ブログ一覧画面に戻る', pictures_path %>

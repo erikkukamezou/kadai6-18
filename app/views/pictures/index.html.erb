@@ -1,10 +1,12 @@
 <h1>投稿一覧</h1>
+<p>投稿者</p>
 <table>
   <tr>
     <th>タイトル</th>
     <th>内容</th>
   </tr>
 <% @pictures.each do |picture| %>
+        <%= picture.user.name%>
   <tr>
     <td><%= picture.title %></td>
     <td><%= picture.content %></td>
