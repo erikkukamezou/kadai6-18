@@ -4,11 +4,14 @@
     <th>タイトル</th>
     <th>内容</th>
   </tr>
-<% @blogs.each do |blog| %>
+<% @pictures.each do |picture| %>
   <tr>
     <td><%= picture.title %></td>
     <td><%= picture.content %></td>
+     <td><%= link_to '詳細を確認する', picture_path(picture.id) %></td>
+     <td><%= link_to "編集する", edit_picture_path(picture.id) %></td>
   </tr>
 <% end %>
 </table>
-<%= link_to '新しくブログを投稿する', new_picture_path %>
+<br>
+<%= link_to '新しく投稿する', new_picture_path %>
