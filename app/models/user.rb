@@ -5,4 +5,5 @@ class User < ApplicationRecord
                     has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
   has_many :pictures
+  # accepts_nested_attributes_for :images
 end
